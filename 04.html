@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+
+    <!-- animate.css -->
+    <link rel="stylesheet" href="./assets/css/animate.min.css" />
+
+    <!-- reset.less -->
+    <link rel="stylesheet/less" href="./assets/css/reset.less" />
+
+    <!-- common.less -->
+    <link rel="stylesheet/less" href="./assets/css/common.less" />
+
+    <!-- index.less -->
+    <link rel="stylesheet/less" href="./assets/css/04.less" />
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="box">
+            <div class="bum">
+                <img src="./assets/images/0401_01.jpg" alt="">
+            </div>
+            <div class="top">
+                <div class="tt1">
+                    <p>我的</p>
+                </div>
+                <div class="tt2">
+                    <p>房源管理</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ster -->
+    <div class="ster">
+        <div class="box">
+            <div class="item">
+                <div class="txt">
+                    <p>预约中心</p>
+                </div>
+                <div class="txt1">
+                    <span>已预约2家<span class="glyphicon glyphicon-menu-right"></span></span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="txt">
+                    <p>房源收藏</p>
+                </div>
+                <div class="txt1">
+                    <span>已收藏5套<span class="glyphicon glyphicon-menu-right"></span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sver -->
+    <div class="sver">
+        <div class="box">
+            <div class="top">
+                <div class="tat1">
+                    <p>资讯收藏</p>
+                </div>
+                <div class="tat2">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                </div>
+            </div>
+            <div class="buttom">
+                <div class="tet1">
+                    <p>通知管理</p>
+                </div>
+                <div class="cot">
+                    <div class="ctt">
+                        <p>消息中心</p>
+                    </div>
+                    <div class="cvv">
+                        <input type="checkbox" name="sex" id="male" class="chooseBtn" />
+                        <label for="male" class="choose-label"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- temt -->
+    <div class="temt">
+        <div class="box">
+            <div class="item">
+                <div class="txt">
+                    <p>意见反馈</p>
+                </div>
+                <div class="txt1">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="txt">
+                    <p>关于包图租房</p>
+                </div>
+                <div class="txt1">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="txt">
+                    <p>设置</p>
+                </div>
+                <div class="txt1">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                </div>
+            </div>
+                
+        </div>
+    </div>
+
+        <!-- foont -->
+  <div class="foont">
+    <div class="box">
+      <div class="tet">
+        <a href="./index.html">
+          <p class="glyphicon glyphicon-home
+        "></p>
+        <p>首页</p>
+        </a>
+        
+      </div>
+      <div class="tet">
+        <a href="./02.html" class="">
+          <p class="glyphicon glyphicon-search"></p>
+        <p>房源</p>
+        </a>
+      </div>
+      <div class="tet">
+        <a href="./03.html" class="">
+          <p class="glyphicon glyphicon-comment"></p>
+        <p>咨询</p>
+        </a>
+      </div>
+      <div class="tet">
+        <a href="./04.html" class="item">
+          <p class="glyphicon glyphicon-user"></p>
+        <p>我的</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    
+</body>
+</html>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/less.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/wow.min.repeat.js"></script>
+
+<script>
+    //懒加载初始化
+    new WOW().init()
+
+
+    //判断是否为手机端
+    var isTouch=('ontouchstart' in window);
+
+    if(isTouch){
+        $(".carousel").on('touchstart', function(e){
+            var that=$(this);
+            var touch = e.originalEvent.changedTouches[0];
+            var startX = touch.pageX;
+            var startY = touch.pageY;
+            $(document).on('touchmove',function(e){
+                touch = e.originalEvent.touches[0] ||e.originalEvent.changedTouches[0];
+                var endX=touch.pageX - startX;
+                var endY=touch.pageY - startY;
+                if(Math.abs(endY)<Math.abs(endX)){
+                    if(endX > 10){
+                        $(this).off('touchmove');
+                        that.carousel('prev');
+                    }else if (endX < -10){
+                        $(this).off('touchmove');
+                        that.carousel('next');
+                    }
+                    return false;
+                }        });
+        });
+        $(document).on('touchend',function(){
+            $(this).off('touchmove');
+        });
+    }
+</script>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+
+    <!-- animate.css -->
+    <link rel="stylesheet" href="./assets/css/animate.min.css" />
+
+    <!-- reset.less -->
+    <link rel="stylesheet/less" href="./assets/css/reset.less" />
+
+    <!-- common.less -->
+    <link rel="stylesheet/less" href="./assets/css/common.less" />
+
+    <!-- index.less -->
+    <link rel="stylesheet/less" href="./assets/css/03.less" />
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="box">
+            <div class="title">
+                <h1>房产资讯</h1>
+            </div>
+            <div class="list">
+                <div class="txt1">
+                    <p class="zui">最新资讯</p>
+                    <span class="bi1">01/<span class="bi2">03</span></span>
+                    
+                </div>
+                <div class="txt2">
+                    <p>包图市行情</p>
+                </div>
+                <div class="txt3">
+                    <span>开发商资金链普遍吃紧，包图正式拉开全国房企. . . . . .</span>
+                </div>
+                <div class="bum">
+                    <img src="./assets/images/0301_03.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ster -->
+    <div class="ster">
+        <div class="box">
+            <div class="top">
+                <div class="tct1">
+                    <p>热门资讯</p>
+                </div>
+                <div class="tct2">
+                    <p>更多<span class="glyphicon glyphicon-menu-right"></span></p>
+                </div>
+            </div>
+
+            <div class="cont">
+                <div class="item">
+                    <div class="left">
+                        <div class="bum">
+                            <img src="./assets/images/0303_07.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="txt1">
+                            <span>健康住宅“这个圈”如何才能画
+                                满360度？</span>
+                        </div>
+                        <div class="txt2">
+                            <p class="ts1">包图新闻</p>
+                            <p class="glyphicon glyphicon-comment">2402<span class="glyphicon glyphicon-heart">520</span></p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="bum">
+                            <img src="./assets/images/0303_07.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="txt1">
+                            <span>健康住宅“这个圈”如何才能画
+                                满360度？</span>
+                        </div>
+                        <div class="txt2">
+                            <p class="ts1">包图新闻</p>
+                            <p class="glyphicon glyphicon-comment">2402<span class="glyphicon glyphicon-heart">520</span></p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- foont -->
+  <div class="foont">
+    <div class="box">
+      <div class="tet">
+        <a href="./index.html">
+          <p class="glyphicon glyphicon-home
+        "></p>
+        <p>首页</p>
+        </a>
+        
+      </div>
+      <div class="tet">
+        <a href="./02.html" class="">
+          <p class="glyphicon glyphicon-search"></p>
+        <p>房源</p>
+        </a>
+      </div>
+      <div class="tet">
+        <a href="./03.html" class="item">
+          <p class="glyphicon glyphicon-comment"></p>
+        <p>咨询</p>
+        </a>
+      </div>
+      <div class="tet">
+        <a href="./04.html">
+          <p class="glyphicon glyphicon-user"></p>
+        <p>我的</p>
+        </a>
+      </div>
+    </div>
+  </div>
+    
+</body>
+</html>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/less.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/wow.min.repeat.js"></script>
+
+<script>
+    //懒加载初始化
+    new WOW().init()
+
+
+    //判断是否为手机端
+    var isTouch=('ontouchstart' in window);
+
+    if(isTouch){
+        $(".carousel").on('touchstart', function(e){
+            var that=$(this);
+            var touch = e.originalEvent.changedTouches[0];
+            var startX = touch.pageX;
+            var startY = touch.pageY;
+            $(document).on('touchmove',function(e){
+                touch = e.originalEvent.touches[0] ||e.originalEvent.changedTouches[0];
+                var endX=touch.pageX - startX;
+                var endY=touch.pageY - startY;
+                if(Math.abs(endY)<Math.abs(endX)){
+                    if(endX > 10){
+                        $(this).off('touchmove');
+                        that.carousel('prev');
+                    }else if (endX < -10){
+                        $(this).off('touchmove');
+                        that.carousel('next');
+                    }
+                    return false;
+                }        });
+        });
+        $(document).on('touchend',function(){
+            $(this).off('touchmove');
+        });
+    }
+</script>

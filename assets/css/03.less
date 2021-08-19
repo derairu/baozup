@@ -1,0 +1,136 @@
+//header
+.header{
+    padding: 0;
+    margin: 0;
+
+    .box{
+        padding: 1em 1em;
+
+        .title{
+            border-bottom: 1px solid #f8f8f8;
+            h1{
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    }
+    .list{
+        .txt1{
+            display: flex;
+            justify-content: space-between;
+
+            .zui{
+                color: red;
+                margin-top: 3px;
+            }
+            .bi1{
+                margin-top: 3px;
+                color: #7a7a7a;
+
+                .bi2{
+                    color: #c1c1c0;
+                }
+            }
+        }
+        .txt2{
+            font-size: 20px;
+        }
+        .txt3{
+            color: #9c9c9a;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+//ster
+.ster{
+    .box{
+        padding: 2em 1em;
+
+        .top{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1em;
+
+            .tct1{
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .tct2{
+                color: #b4b4b4;
+            }
+        }
+        .cont{
+            .item{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 1em;
+                padding-bottom: 2em;
+                border-bottom: 1px solid #f8f8f8;
+
+                .left{
+                    width: 50%;
+                    margin-right: 1em;
+                }
+
+                .right{
+                    .txt1{
+                        margin-bottom: 1em;
+                        font-size: 20px;
+                        span{
+                            color: #7c7c7c;
+                        }
+                    }
+                    .txt2{
+                        display: flex;
+                        justify-content: space-between;
+
+                        .ts1{
+                            width: 65px;
+                            height: 20px;
+                            background: #f6f6f6;
+                            color: red;
+                            text-align: center;
+                        }
+                        p{
+                            margin-left: 10px;
+                            color: #999996;
+                            span{
+                                margin-left: 10px;
+
+                                &:hover{
+                                    color: red;
+                                }
+                            }
+
+                            
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+    @media screen and (max-width:320px) {
+        .box{
+            .cont{
+                .item{
+                    .right{
+                        .txt1{
+                            font-size: 15px;
+                        }
+                        .txt2{
+                            .ts1{
+                                width: 57px;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+        
+    }
+}
